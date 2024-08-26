@@ -1,0 +1,6 @@
+POST http://localhost:5000/pokemon_data
+Content-Type: application/json
+
+{
+  "pokemon_id": 25
+}

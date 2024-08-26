@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    ports:
+      - "9000:9000"   # Porta para a API
+      - "9001:9001"   # Porta para a Web UI
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - minio_data:/data  # Persistência de dados
+    command: server /data --console-address ":9001"
+    restart: always
+
+  clickhouse:
+    image: yandex/clickhouse-server:latest
+    container_name: clickhouse
+    ports:
+      - "8123:8123"  # Porta para a HTTP interface
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse  # Persistência de dados
+    restart: always
+
+volumes:
+  minio_data:
+    driver: local
+  clickhouse_data:
+    driver: local

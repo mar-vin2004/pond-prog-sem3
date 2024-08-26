@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "data-pipeline"
+version = "0.1.0"
+description = ""
+authors = ["mar-vin2004 <marcos.moura@sou.inteli.edu.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+flask = "^3.0.3"
+requests = "^2.32.3"
+pandas = "^2.2.2"
+pyarrow = "^17.0.0"
+minio = "^7.2.8"
+clickhouse-connect = "^0.7.19"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
